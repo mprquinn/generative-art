@@ -10,9 +10,11 @@ const settings = {
 };
 
 const sketch = () => {
-  const colorCount = random.rangeFloor(1, 6);
-  const palette = random.shuffle(random.pick(palettes)).slice(0,colorCount);
-
+  random.setSeed(',,...///// //,,mn')
+  const colorCount = random.rangeFloor(1, 4);
+  const palette = random.shuffle(random.pick(palettes)).slice(0, colorCount);
+  const background = random.pick(palettes)[4];
+  console.log(background);
   const createGrid = () => {
     const points = [];
     const count = 30;
@@ -40,7 +42,7 @@ const sketch = () => {
     width,
     height
   }) => {
-    context.fillStyle = 'white';
+    context.fillStyle = background;
     context.fillRect(0, 0, width, height);
 
     points.forEach(data => {
